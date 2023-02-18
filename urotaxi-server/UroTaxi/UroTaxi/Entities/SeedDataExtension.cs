@@ -9,12 +9,12 @@ namespace UroTaxi.Entities
             //Users
             modelBuilder.Entity<User>()
                 .HasData(
-                new User { userId = 1, userName = "superuser", password = "superuser@1", userEmail = "super@yahoo.com", userPhone = 9812451267, isAdmin = true, isActive = true },
-                new User { userId = 2, userName = "jane", password = "jane@1", userEmail = "jane@yahoo.com", userPhone = 5627189891, isAdmin = false, isActive = true },
-                new User { userId = 3, userName = "mike", password = "mike@1", userEmail = "mike@yahoo.com", userPhone = 9812451267, isAdmin = false, isActive = true },
-                new User { userId = 4, userName = "kennedy", password = "kennedy@1", userEmail = "kennedy@yahoo.com", userPhone = 9812451267, isAdmin = false, isActive = true },
-                new User { userId = 5, userName = "Piyush", password = "piyush@1", userEmail = "piyush@yahoo.com", userPhone = 9812451267, isAdmin = false, isActive = true },
-                new User { userId = 6, userName = "Dwayne", password = "dwayne@1", userEmail = "dwayne@yahoo.com", userPhone = 9812451267, isAdmin = false, isActive = true }
+                new User { userId = 1, userName = "superuser", password = "superuser@1", userEmail = "super@yahoo.com", userPhone = 9812451267, isAdmin = true, isDriver = false, isActive = true },
+                new User { userId = 2, userName = "jane", password = "jane@1", userEmail = "jane@yahoo.com", userPhone = 5627189891, isAdmin = false, isDriver = true, isActive = true },
+                new User { userId = 3, userName = "mike", password = "mike@1", userEmail = "mike@yahoo.com", userPhone = 9812451267, isAdmin = false, isDriver = false, isActive = true },
+                new User { userId = 4, userName = "kennedy", password = "kennedy@1", userEmail = "kennedy@yahoo.com", userPhone = 9812451267, isAdmin = false, isDriver = false, isActive = true },
+                new User { userId = 5, userName = "Piyush", password = "piyush@1", userEmail = "piyush@yahoo.com", userPhone = 9812451267, isAdmin = false, isDriver = false, isActive = true },
+                new User { userId = 6, userName = "Dwayne", password = "dwayne@1", userEmail = "dwayne@yahoo.com", userPhone = 9812451267, isAdmin = false, isDriver = false, isActive = true }
                  );
 
             //Drivers

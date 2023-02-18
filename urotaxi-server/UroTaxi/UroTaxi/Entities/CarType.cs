@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using UroTaxi.Business.Entities;
 
 namespace UroTaxi.Entities
 {

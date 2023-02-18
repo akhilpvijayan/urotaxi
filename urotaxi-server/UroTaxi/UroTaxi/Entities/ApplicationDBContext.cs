@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace UroTaxi.Entities
 {
-    public class ApplicationDBContext
+    public class ApplicationDBContext : DbContext
     {
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options)
         {
@@ -20,6 +20,7 @@ namespace UroTaxi.Entities
         public DbSet<CarModel> CarModels { get; set; }
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<CarType> CarTypes { get; set; }
+        public DbSet<City> City { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Seed();
