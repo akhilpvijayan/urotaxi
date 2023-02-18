@@ -9,16 +9,16 @@ import { Observable } from 'rxjs';
 })
 export class CarTypeService {
   formData:CarType=new CarType();
-  stations !: CarType[];
+  carTypes !: CarType[];
   constructor(private httpClient: HttpClient) { }
-  //get stations
-  getStations(){
+  //get all car types
+  getCarTypes(){
     this.httpClient.get(environment.apiUrl + '/cartype')
     .toPromise().then(
-      response => this.stations = response as CarType[])
+      response => this.carTypes = response as CarType[])
   }
-  //get particular station
-  getStationById(cartypeId: number): Observable<any> {
+  //get particular car type
+  getCarType(cartypeId: number): Observable<any> {
     return this.httpClient.get(environment.apiUrl + '/cartype/' + cartypeId);
       
     }

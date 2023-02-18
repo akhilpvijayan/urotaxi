@@ -72,13 +72,35 @@
               <h4>
                 Get A Taxi Now
               </h4>
-              <form action="">
-                <input type="text" placeholder="Car Type">
-                <input type="text" placeholder="Pick Up Location">
-                <input type="text" placeholder="Drop Location">
+              <form name ="dashBoardForm" class="dashBoardForm" #form="ngForm" (ngSubmit)="onSubmit(form)">
+                <select name="CarType" id="CarType" class="form-control" required #CarType="ngModel"
+                [(ngModel)]="dashBoardForm.carType">
+                          <option value="" disabled selected>Car Type</option>
+                          <option *ngFor="let carType of carTypeService.carTypes" value='{{carType.carTypeId}}'>
+                            {{carType.carType}}
+                        </option>
+                </select>
+                &nbsp;
+                <select name="Source" id="Source" class="form-control" required #Source="ngModel"
+                [(ngModel)]="dashBoardForm.source">
+                  <option value="" disabled selected>Pick Up Location</option>
+                  <option *ngFor="let city of cityService.city" value='{{city.cityId}}'>
+                    {{city.city}}
+                </option>
+                </select>
+                &nbsp;
+                <select name="Destination" id="Destination" class="form-control" required #Destination="ngModel"
+                [(ngModel)]="dashBoardForm.destination">
+                  <option value="" disabled selected>Drop Location</option>
+                  <option *ngFor="let city of cityService.city" value='{{city.cityId}}'>
+                    {{city.city}}
+                </option>
+                </select>
+                &nbsp;
                 <div class="btm_input">
-                  <input type="text" placeholder="Your Phone Number">
-                  <button>Book Now</button>
+                  <input type="number" name="Phone" placeholder="Your Phone Number" id="Phone" #Phone="ngModel"
+                  [(ngModel)]="dashBoardForm.phone">
+                  <button type="submit">Book Now</button>
                 </div>
               </form>
             </div>
