@@ -1,21 +1,180 @@
-.example-container {
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Float four columns side by side */
+  .column {
+    float: left;
+    width: 100%;
+    padding: 0 10px;
+  }
+  
+
+  
+  /* Style the counter cards */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    background-color: #821919;
+    border-radius: 10px;
+  }
+  
+.column {
+    width: 100%;
+    margin-bottom: 20px;    
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+table {
+    padding-top: 40px;
+    padding-left: 80px;
+    padding-right: 80px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.car-name{
+    font-size: larger;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+tr{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #f0f40e;
+    color: black;
+    border: none;
+    text-align: center;
+
+    padding: 15px;
+    width: 150px;
+    height: 50px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    text-align: center;
+  }
+  span{
+    font-size: large;
+    text-align: center;
+    padding-bottom: 50%;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  .navbar{
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
+  }
+
+  .navbar li{
+    float:left;
+    list-style: none; 
+    margin: 13px 20px;
+}
+
+.navbar ul{
+    overflow: auto;
+}
+
+.navbar li a{
+    padding: 3px 3px;
+    text-decoration: none;
+    color: rgb(7, 7, 7);
+}
+
+.center {
+    text-align: center;
+  }
+
+  .arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+  
+.container{
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+  .flex-form button[type="submit"] {
+    background: #ef3f5a;
+    border: 1px solid #ef3f5a;
+    color: #fff;
+    padding: 0 30px;
+    cursor: pointer;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+  }
+  
+  .flex-form button[type="submit"]:hover {
+    background: #d73851;
+    border: 1px solid #d73851;
+  }
+  
+  .flex-form {
+    display: -webkit-box;
     display: flex;
-    flex-direction: column;
-    min-width: 300px;
+    z-index: 10;
+    position: relative;
+    width: 500px;
+    box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
   }
   
-  .example-header {
-    min-height: 64px;
-    padding: 8px 24px 0;
+  .flex-form > * {
+    border: 0;
+    padding: 0 0 0 10px;
+    background: #fff;
+    line-height: 50px;
+    font-size: 1rem;
+    border-radius: 0;
+    outline: 0;
+    -webkit-appearance: none;
   }
   
-  .mat-form-field {
-    font-size: 14px;
+  .flex-form {
     width: 100%;
   }
-  
-  .mat-table {
-    overflow: auto;
-    max-height: 500px;
+
+  select{
+    flex-basis: 100%;
   }
-  

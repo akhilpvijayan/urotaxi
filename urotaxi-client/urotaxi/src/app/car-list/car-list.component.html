@@ -1,36 +1,39 @@
-<div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource">
+<header>
+<nav class="navbar">
+    <ul>
+        <li><a [routerLink]="['/home']"><b>Home</b></a><b style="color: grey"><i class="arrow right"></i>&nbsp; Cars</b></li>
+    </ul>
+</nav>
+</header>
+<div class="container">
+    <form  name ="dashBoardForm" class="flex-form" (ngSubmit)="onSubmit(form)" #form="ngForm">
+        <label for="from">
+          <i class="ion-location"></i>
+        </label>
+        <select name="CarType" id="CarType" class="form-control" required>
+            <option value="" disabled selected>Car Type</option>
+            <option *ngFor="let carType of carTypeService.carTypes" value='{{carType.carTypeId}}'>
+            {{carType.carType}}
+            </option>
+        </select>
+        <button type="submit">Apply</button>
+      </form>
+</div>
+<table class="table-row" style="width:100%">
+<tr *ngFor="let carModel of carModelService.carModels | paginate:{itemsPerPage: 3, currentPage:p}" >
+    <td style="width:20%"><img src="{{carModel.carImage}}"  width="160" height="100"></td>
+    <td class="car-name" style="width:40%"><b>{{carModel.carModel}}</b></td>
+    <td><i class="fa-solid fa-taxi"></i></td>
+    <td><button class="button"><span><b>Book Now</b></span></button></td>
+    <hr>
+</tr>
+</table>
+<div class="center">
+    <div id="pagination">
+        <pagination-controls (pageChange)="p=$event"></pagination-controls>
+    </div>   
+</div>
+
+
   
-      <!-- Position Column -->
-      <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-      </ng-container>
-  
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
-  
-      <!-- Weight Column -->
-      <ng-container matColumnDef="weight">
-        <th mat-header-cell *matHeaderCellDef> Weight </th>
-        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-      </ng-container>
-  
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="symbol">
-        <th mat-header-cell *matHeaderCellDef> Symbol </th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-      </ng-container>
-  
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                   showFirstLastButtons
-                   aria-label="Select page of periodic elements">
-    </mat-paginator>
-  </div>
+ 
