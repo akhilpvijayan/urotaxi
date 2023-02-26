@@ -1,0 +1,47 @@
+.card-main{
+    padding-top: 12px;
+}
+.img{
+   width: 100%;
+   padding-left: 20px;
+}
+
+.column {
+    float: left;
+    width: 50%;
+    padding-top: 50px;
+  }
+  
+  /* Clear floats after image containers */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .dot {
+    height: 5px;
+    width: 5px;
+    background-color: #000000;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  .car-name{
+    font-size: xx-large;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .fades{
+    color: grey;
+  }
+
+.li {
+    display: inline;
+    padding: 20px;
+    color: white;
+}
+
+.ul{
+    background-color: gray;
+}

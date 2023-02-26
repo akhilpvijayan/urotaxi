@@ -34,6 +34,15 @@ namespace UroTaxi.Controllers
         {
             return _applicationDbContext.CarModels.ToListAsync();
         }
+
+        [HttpGet]
+        [Route("carmodel/{carTypeId}")]
+        [ProducesResponseType(typeof(CarModel), 200)]
+        [ProducesResponseType(404)]
+        public Task<List<CarModel>> GetCarModels(int carTypeId)
+        {
+            return _applicationDbContext.CarModels.Where(s=>s.carType == carTypeId).ToListAsync();
+        }
         #endregion
     }
 }

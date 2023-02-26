@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using UroTaxi.Entities;
 
-namespace UroTaxi.Entities
+namespace UroTaxi.XObjects.SeedScripts
 {
     public static class SeedDataExtension
     {
@@ -21,7 +22,7 @@ namespace UroTaxi.Entities
             modelBuilder.Entity<Driver>()
                 .HasData(
                 new Driver { driverId = 1, driverName = "Ben", driverPhone = 9871245678, driverEMail = "ben1@gmail.com", carModel = 1, isActive = true },
-                new Driver { driverId = 2, driverName = "John", driverPhone = 9811255678, driverEMail = "john1@gmail.com", carModel = 2, isActive = true },
+                new Driver { driverId = 2, driverName = "John Moose", driverPhone = 9811255678, driverEMail = "john1@gmail.com", carModel = 2, isActive = true },
                 new Driver { driverId = 3, driverName = "Kumar", driverPhone = 9991826780, driverEMail = "kumar@gmail.com", carModel = 3, isActive = true },
                 new Driver { driverId = 4, driverName = "Adam", driverPhone = 7869123410, driverEMail = "adam@gmail.com", carModel = 4, isActive = true },
                 new Driver { driverId = 5, driverName = "Donald", driverPhone = 9867123401, driverEMail = "donald@gmail.com", carModel = 5, isActive = true },
@@ -42,24 +43,36 @@ namespace UroTaxi.Entities
             //CarModels
             modelBuilder.Entity<CarModel>()
                 .HasData(
-                new CarModel { carModelId = 1, carModel = "Tata Altroz", carType = 1, carImage = "https://imgd.aeplcdn.com/1056x594/n/cw/ec/32597/altroz-exterior-right-front-three-quarter-79.jpeg?isig=0&q=75&wm=1", isActive = true },
-                new CarModel { carModelId = 2, carModel = "Toyota Glanza", carType = 1, carImage = "https://imgd.aeplcdn.com/1056x594/n/cw/ec/112839/glanza-facelift-exterior-right-front-three-quarter.jpeg?isig=0&q=75&wm=1", isActive = true },
-                new CarModel { carModelId = 3, carModel = "Honda City", carType = 2, carImage = "https://imgd.aeplcdn.com/1056x594/n/cw/ec/26755/city-4th-generation-exterior-right-front-three-quarter.jpeg?q=75&wm=1", isActive = true },
-                new CarModel { carModelId = 4, carModel = "Skoda Slavia", carType = 2, carImage = "https://imgd.aeplcdn.com/1056x594/n/cw/ec/44088/slavia-exterior-right-front-three-quarter-5.jpeg?isig=0&q=75&wm=1", isActive = true },
-                new CarModel { carModelId = 5, carModel = "Honda Amaze", carType = 3, carImage = "https://imgd.aeplcdn.com/1056x594/n/cw/ec/45951/amaze-facelift-exterior-right-front-three-quarter.jpeg?isig=0&q=75&wm=1", isActive = true },
-                new CarModel { carModelId = 6, carModel = "Jaguar F-Type", carType = 4, carImage = "https://imgd.aeplcdn.com/1056x594/n/cw/ec/46994/jaguar-f-type-right-front-three-quarter18.jpeg?q=75&wm=1", isActive = true },
-                new CarModel { carModelId = 7, carModel = "BMW 2-Series Gran Coupe", carType = 4, carImage = "https://imgd.aeplcdn.com/1056x594/n/cw/ec/48034/2-series-gran-coupe-exterior-right-front-three-quarter.jpeg?q=75&wm=1", isActive = true },
-                new CarModel { carModelId = 8, carModel = "Tata Nano", carType = 5, carImage = "https://imgd.aeplcdn.com/600x600/cw/ec/18712/Tata-Nano-GenX-Exterior-122442.jpg?wm=0&q=75", isActive = true },
-                new CarModel { carModelId = 9, carModel = "Hyundai Creta", carType = 6, carImage = "https://imgd.aeplcdn.com/1056x594/n/cw/ec/141115/creta-exterior-right-front-three-quarter.jpeg?isig=0&q=75&wm=1", isActive = true },
-                new CarModel { carModelId = 10, carModel = "Mahindra XUV700", carType = 6, carImage = "https://imgd.aeplcdn.com/1056x594/n/cw/ec/42355/xuv700-exterior-right-front-three-quarter.jpeg?isig=0&q=75&wm=1", isActive = true },
-                new CarModel { carModelId = 11, carModel = "Renault Triber", carType = 7, carImage = "https://imgd.aeplcdn.com/1056x594/n/yshbs0b_1641669.jpg?q=75", isActive = true },
-                new CarModel { carModelId = 12, carModel = "Maruti Suzuki Ertiga", carType = 7, carImage = "https://imgd.aeplcdn.com/0x0/n/cw/ec/115777/2022-ertiga-exterior-right-front-three-quarter-3.jpeg?isig=0", isActive = true },
-                new CarModel { carModelId = 13, carModel = "Datsun Redi Go", carType = 8, carImage = "https://imgd.aeplcdn.com/1200x900/n/cw/ec/45245/datsun-redi-go-right-front-three-quarter19.jpeg?q=75", isActive = true },
-                new CarModel { carModelId = 14, carModel = "BMW Z4", carType = 9, carImage = "https://imgd.aeplcdn.com/1280x720/cw/ec/37095/BMW-Z4-Roadster-Right-Front-Three-Quarter-153914.jpg?wm=0&q=75", isActive = true },
-                new CarModel { carModelId = 15, carModel = "Maruti Suzuki Celerio", carType = 10, carImage = "https://imgd.aeplcdn.com/1200x900/n/cw/ec/53695/new-gen-celerio-exterior-right-front-three-quarter-2.jpeg?isig=0&q=75", isActive = true },
-                new CarModel { carModelId = 16, carModel = "Maruti Suzuki Swift", carType = 10, carImage = "https://imgd.aeplcdn.com/1200x900/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75", isActive = true },
-                new CarModel { carModelId = 17, carModel = "Kia Carnival", carType = 11, carImage = "https://imgd.aeplcdn.com/0x0/n/cw/ec/41205/kia-carnival-right-front-three-quarter8.jpeg", isActive = true }
+                new CarModel { carModelId = 1, carModel = "Tata Altroz", carType = 1, carImage = "https://imgd.aeplcdn.com/1056x594/n/cw/ec/32597/altroz-exterior-right-front-three-quarter-79.jpeg?isig=0&q=75&wm=1", fuelType = 1, isAC = true, seats = 4, minFare = 250, isActive = true },
+                new CarModel { carModelId = 2, carModel = "Toyota Glanza", carType = 1, carImage = "https://imgd.aeplcdn.com/1056x594/n/cw/ec/112839/glanza-facelift-exterior-right-front-three-quarter.jpeg?isig=0&q=75&wm=1", fuelType = 2, isAC = true, seats = 4, minFare = 280, isActive = true },
+                new CarModel { carModelId = 3, carModel = "Honda City", carType = 2, carImage = "https://imgd.aeplcdn.com/1056x594/n/cw/ec/26755/city-4th-generation-exterior-right-front-three-quarter.jpeg?q=75&wm=1", fuelType = 1, isAC = true, seats = 4, minFare = 550, isActive = true },
+                new CarModel { carModelId = 4, carModel = "Skoda Slavia", carType = 2, carImage = "https://imgd.aeplcdn.com/1056x594/n/cw/ec/44088/slavia-exterior-right-front-three-quarter-5.jpeg?isig=0&q=75&wm=1", fuelType = 3, isAC = true, seats = 4, minFare = 450, isActive = true },
+                new CarModel { carModelId = 5, carModel = "Honda Amaze", carType = 3, carImage = "https://imgd.aeplcdn.com/1056x594/n/cw/ec/45951/amaze-facelift-exterior-right-front-three-quarter.jpeg?isig=0&q=75&wm=1", fuelType = 2, isAC = true, seats = 4, minFare = 400, isActive = true },
+                new CarModel { carModelId = 6, carModel = "Jaguar F-Type", carType = 4, carImage = "https://imgd.aeplcdn.com/1056x594/n/cw/ec/46994/jaguar-f-type-right-front-three-quarter18.jpeg?q=75&wm=1", fuelType = 4, isAC = true, seats = 2, minFare = 950, isActive = true },
+                new CarModel { carModelId = 7, carModel = "BMW 2-Series Gran Coupe", carType = 4, carImage = "https://imgd.aeplcdn.com/1056x594/n/cw/ec/48034/2-series-gran-coupe-exterior-right-front-three-quarter.jpeg?q=75&wm=1", fuelType = 1, isAC = true, seats = 4, minFare = 1050, isActive = true },
+                new CarModel { carModelId = 8, carModel = "Tata Nano", carType = 5, carImage = "https://imgd.aeplcdn.com/600x600/cw/ec/18712/Tata-Nano-GenX-Exterior-122442.jpg?wm=0&q=75", fuelType = 2, isAC = true, seats = 4, minFare = 150, isActive = true },
+                new CarModel { carModelId = 9, carModel = "Hyundai Creta", carType = 6, carImage = "https://imgd.aeplcdn.com/1056x594/n/cw/ec/141115/creta-exterior-right-front-three-quarter.jpeg?isig=0&q=75&wm=1", fuelType = 1, isAC = true, seats = 4, minFare = 300, isActive = true },
+                new CarModel { carModelId = 10, carModel = "Mahindra XUV700", carType = 6, carImage = "https://imgd.aeplcdn.com/1056x594/n/cw/ec/42355/xuv700-exterior-right-front-three-quarter.jpeg?isig=0&q=75&wm=1", fuelType = 1, isAC = true, seats = 7, minFare = 800, isActive = true },
+                new CarModel { carModelId = 11, carModel = "Renault Triber", carType = 7, carImage = "https://imgd.aeplcdn.com/1056x594/n/yshbs0b_1641669.jpg?q=75", fuelType = 1, isAC = true, seats = 4, minFare = 370, isActive = true },
+                new CarModel { carModelId = 12, carModel = "Maruti Suzuki Ertiga", carType = 7, carImage = "https://imgd.aeplcdn.com/0x0/n/cw/ec/115777/2022-ertiga-exterior-right-front-three-quarter-3.jpeg?isig=0", fuelType = 1, isAC = true, seats = 6, minFare = 750, isActive = true },
+                new CarModel { carModelId = 13, carModel = "Datsun Redi Go", carType = 8, carImage = "https://imgd.aeplcdn.com/1200x900/n/cw/ec/45245/datsun-redi-go-right-front-three-quarter19.jpeg?q=75", fuelType = 1, isAC = true, seats = 4, minFare = 250, isActive = true },
+                new CarModel { carModelId = 14, carModel = "BMW Z4", carType = 9, carImage = "https://imgd.aeplcdn.com/1280x720/cw/ec/37095/BMW-Z4-Roadster-Right-Front-Three-Quarter-153914.jpg?wm=0&q=75", fuelType = 1, isAC = true, seats = 4, minFare = 1250, isActive = true },
+                new CarModel { carModelId = 15, carModel = "Maruti Suzuki Celerio", carType = 10, carImage = "https://imgd.aeplcdn.com/1200x900/n/cw/ec/53695/new-gen-celerio-exterior-right-front-three-quarter-2.jpeg?isig=0&q=75", fuelType = 1, isAC = true, seats = 4, minFare = 350, isActive = true },
+                new CarModel { carModelId = 16, carModel = "Maruti Suzuki Swift", carType = 10, carImage = "https://imgd.aeplcdn.com/1200x900/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75", fuelType = 1, isAC = true, seats = 4, minFare = 280, isActive = true },
+                new CarModel { carModelId = 17, carModel = "Kia Carnival", carType = 11, carImage = "https://imgd.aeplcdn.com/0x0/n/cw/ec/41205/kia-carnival-right-front-three-quarter8.jpeg", fuelType = 2, isAC = true, seats = 6, minFare = 680, isActive = true },
+                new CarModel { carModelId = 18, carModel = "Tata Tiago", carType = 1, carImage = "https://media.zigcdn.com/media/model/2022/Aug/tiago-new-1_930x620.jpg", fuelType = 1, isAC = true, seats = 4, minFare = 250, isActive = true },
+                new CarModel { carModelId = 19, carModel = "Hyundai i20", carType = 1, carImage = "https://media.zigcdn.com/media/model/2020/Nov/hyundai-i20-2_930x620.jpg", fuelType = 2, isAC = true, seats = 4, minFare = 290, isActive = true }
                 );
+
+            //Fueltypes
+            modelBuilder.Entity<Fueltype>()
+                .HasData(
+                new Fueltype { fuelTypeId = 1, fuelType = "Petrol", isActive = true },
+                new Fueltype { fuelTypeId = 2, fuelType = "Diesel", isActive = true },
+                new Fueltype { fuelTypeId = 3, fuelType = "Hybrid", isActive = true },
+                new Fueltype { fuelTypeId = 4, fuelType = "Electric", isActive = true }
+                );
+
             //CarTypes
             modelBuilder.Entity<CarType>()
                 .HasData(

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UroTaxi.Entities;
 
@@ -11,9 +12,11 @@ using UroTaxi.Entities;
 namespace UroTaxi.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230226091513_addedseedandentitiesandfueltypetable")]
+    partial class addedseedandentitiesandfueltypetable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -552,7 +555,7 @@ namespace UroTaxi.Migrations
                             driverId = 2,
                             carModel = 2,
                             driverEMail = "john1@gmail.com",
-                            driverName = "John Moose",
+                            driverName = "John",
                             driverPhone = 9811255678L,
                             isActive = true
                         },

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using UroTaxi.Business.Services;
+using UroTaxi.Business.Services.Dto;
 using UroTaxi.Entities;
 
 namespace UroTaxi.Controllers
@@ -33,6 +34,15 @@ namespace UroTaxi.Controllers
         public Task<List<Booking>> GetAllBookings()
         {
             return _applicationDbContext.Bookings.ToListAsync();
+        }
+
+        [HttpGet]
+        [Route("Booking/Detail/{carModelId}")]
+        [ProducesResponseType(typeof(Booking), 200)]
+        [ProducesResponseType(404)]
+        public Task<List<BookingDetailsDto>> GetBookingDetail(int carModelId)
+        {
+            return _bookingService.GetBookingDetail(carModelId);
         }
         #endregion
     }

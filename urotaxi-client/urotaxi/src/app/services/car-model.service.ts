@@ -18,8 +18,18 @@ export class CarModelService {
       response => this.carModels = response as CarModel[])
   }
   //get particular car model
-  getCarModel(carModelId: number): Observable<any> {
-    return this.httpClient.get(environment.apiUrl + '/carmodel/' + carModelId);
+  getCarModel(carModelId: number) {
+    this.httpClient.get(environment.apiUrl + '/carmodel/' + carModelId)
+    .toPromise().then(
+      response => this.carModels = response as CarModel[]);;
+      
+    }
+
+  //get car model by car type
+  getCarModelByCarType(carTypeId: number){
+    this.httpClient.get(environment.apiUrl + '/carmodel/' + carTypeId)
+    .toPromise().then(
+      response => this.carModels = response as CarModel[]);
       
     }
   

@@ -13,12 +13,14 @@ import { MatPaginatorModule } from '@angular/material/paginator';
  
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { CarDetailsComponent } from './car-list/car-details/car-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    CarListComponent
+    CarListComponent,
+    CarDetailsComponent
   ],
   imports: [
     BrowserModule,

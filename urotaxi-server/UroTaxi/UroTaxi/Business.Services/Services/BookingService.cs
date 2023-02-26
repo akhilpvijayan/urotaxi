@@ -1,6 +1,30 @@
-﻿namespace UroTaxi.Business.Services.Services
+﻿using UroTaxi.Business.DataServices;
+using UroTaxi.Business.Services.Dto;
+using UroTaxi.Entities;
+
+namespace UroTaxi.Business.Services.Services
 {
     public class BookingService : IBookingService
     {
+        #region Private Functions
+        private readonly IBookingDataService _bookingDataService;
+        private readonly ApplicationDBContext _applicationDbContext;
+        #endregion
+
+        #region Constructors
+        public BookingService(
+            IBookingDataService bookingDataService,
+            ApplicationDBContext applicationDbContext)
+        {
+            _bookingDataService = bookingDataService;
+            _applicationDbContext = applicationDbContext;
+        }
+        #endregion
+        #region public functions
+        public Task<List<BookingDetailsDto>> GetBookingDetail(int carModelId)
+        {
+            return _bookingDataService.GetBookingDetail(carModelId);
+        }
+        #endregion
     }
 }

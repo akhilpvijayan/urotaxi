@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 export class CarTypeService {
   formData:CarType=new CarType();
   carTypes !: CarType[];
+  carType !: CarType[];
   constructor(private httpClient: HttpClient) { }
   //get all car types
   getCarTypes(){
@@ -18,9 +19,8 @@ export class CarTypeService {
       response => this.carTypes = response as CarType[])
   }
   //get particular car type
-  getCarType(cartypeId: number): Observable<any> {
+  getCarType(cartypeId: number) : Observable<any>{
     return this.httpClient.get(environment.apiUrl + '/cartype/' + cartypeId);
       
     }
-  
 }

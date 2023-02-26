@@ -10,8 +10,8 @@
         <label for="from">
           <i class="ion-location"></i>
         </label>
-        <select name="CarType" id="CarType" class="form-control" required>
-            <option value="" disabled selected>Car Type</option>
+        <select name="CarType" id="CarType" class="form-control" required #CarType="ngModel" [(ngModel)]="dashBoardForm.carType">
+            <option value="carTypeId" disabled selected></option>
             <option *ngFor="let carType of carTypeService.carTypes" value='{{carType.carTypeId}}'>
             {{carType.carType}}
             </option>
@@ -19,19 +19,22 @@
         <button type="submit">Apply</button>
       </form>
 </div>
-<table class="table-row" style="width:100%">
-<tr *ngFor="let carModel of carModelService.carModels | paginate:{itemsPerPage: 3, currentPage:p}" >
-    <td style="width:20%"><img src="{{carModel.carImage}}"  width="160" height="100"></td>
-    <td class="car-name" style="width:40%"><b>{{carModel.carModel}}</b></td>
-    <td><i class="fa-solid fa-taxi"></i></td>
-    <td><button class="button"><span><b>Book Now</b></span></button></td>
-    <hr>
-</tr>
-</table>
+<br>
+<div class="tb">
+    <table style="width: 100%;">
+        <tr *ngFor="let carModel of carModelService.carModels | paginate:{itemsPerPage: 3, currentPage:p}" >
+            <td style="width:20%"><img src="{{carModel.carImage}}"  width="160" height="100"></td>
+            <td class="car-name" style="width:50%"><b>{{carModel.carModel}}</b></td>
+            <td style="width:30%"><button class="button" [routerLink]="['book',carModel.carModelId]"><span><b>Book Now</b></span></button></td>
+        </tr>
+    </table>
+</div>
+
+<br>
 <div class="center">
     <div id="pagination">
         <pagination-controls (pageChange)="p=$event"></pagination-controls>
-    </div>   
+    </div>  
 </div>
 
 

@@ -35,6 +35,15 @@ table {
     padding-top: 40px;
     padding-left: 80px;
     padding-right: 80px;
+
+    width: 100%;
+
+}
+
+.tb{
+    padding-top: 40px;
+    padding-left: 100px;
+    padding-right: 100px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -48,7 +57,8 @@ tr{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
     padding: 16px;
     text-align: center;
-    background-color: #ffffff;
+    background-color: #fcfcfc;
+    border-radius: 10px;
 }
 
 .button {

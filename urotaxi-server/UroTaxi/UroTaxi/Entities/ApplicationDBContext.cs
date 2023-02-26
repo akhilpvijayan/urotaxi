@@ -1,6 +1,8 @@
 ﻿
 
 using Microsoft.EntityFrameworkCore;
+using UroTaxi.Business.Services.Dto;
+using UroTaxi.XObjects.SeedScripts;
 
 namespace UroTaxi.Entities
 {
@@ -21,6 +23,7 @@ namespace UroTaxi.Entities
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<CarType> CarTypes { get; set; }
         public DbSet<City> City { get; set; }
+        public DbSet<Fueltype> fueltypes { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Seed();
