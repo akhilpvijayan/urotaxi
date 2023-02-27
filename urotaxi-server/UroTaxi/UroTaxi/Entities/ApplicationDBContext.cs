@@ -1,7 +1,6 @@
 ﻿
 
 using Microsoft.EntityFrameworkCore;
-using UroTaxi.Business.Services.Dto;
 using UroTaxi.XObjects.SeedScripts;
 
 namespace UroTaxi.Entities

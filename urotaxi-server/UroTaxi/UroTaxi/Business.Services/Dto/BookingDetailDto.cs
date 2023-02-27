@@ -2,11 +2,12 @@
 
 namespace UroTaxi.Business.Services.Dto
 {
-    public class BookingDetailsDto : IBookingDetailsDto
+    public class BookingDetailDto : IBookingDetailDto
     {
         public int carModelId { get; set; }
         public string carName { get; set; }
         public int carTypeId { get; set; }
+        public string carImage { get; set; }
         public string carType { get; set; }
         public string ac { get; set; }
         public int seats { get; set; }

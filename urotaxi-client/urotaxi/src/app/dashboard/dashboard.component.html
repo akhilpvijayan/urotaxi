@@ -98,8 +98,8 @@
                 </select>
                 &nbsp;
                 <div class="btm_input">
-                  <input type="number" name="Phone" placeholder="Your Phone Number" id="Phone" #Phone="ngModel"
-                  [(ngModel)]="dashBoardForm.phone">
+                  <input type="text" onfocus="(this.type='date')" name="Date" placeholder="Pickup Date" id="Date" #Date="ngModel"
+                  [(ngModel)]="dashBoardForm.date">
                   <button type="submit">Book Now</button>
                 </div>
               </form>

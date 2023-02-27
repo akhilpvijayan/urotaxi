@@ -37,7 +37,9 @@ namespace UroTaxi.XObjects.SeedScripts
                 new Driver { driverId = 14, driverName = "Buchan", driverPhone = 9871425617, driverEMail = "buchan@gmail.com", carModel = 14, isActive = true },
                 new Driver { driverId = 15, driverName = "Amit", driverPhone = 09182918239, driverEMail = "amit@gmail.com", carModel = 15, isActive = true },
                 new Driver { driverId = 16, driverName = "Anto", driverPhone = 9809087867, driverEMail = "anto@gmail.com", carModel = 16, isActive = true },
-                new Driver { driverId = 17, driverName = "Antony", driverPhone = 9871278910, driverEMail = "antony@gmail.com", carModel = 17, isActive = true }
+                new Driver { driverId = 17, driverName = "Antony", driverPhone = 9871278910, driverEMail = "antony@gmail.com", carModel = 17, isActive = true },
+                new Driver { driverId = 18, driverName = "Gregory", driverPhone = 9871000010, driverEMail = "gregory@gmail.com", carModel = 18, isActive = true },
+                new Driver { driverId = 19, driverName = "Chris", driverPhone = 9871111010, driverEMail = "chris@gmail.com", carModel = 19, isActive = true }
                 );
 
             //CarModels

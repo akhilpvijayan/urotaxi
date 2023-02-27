@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using UroTaxi.Business.DataServices;
+using UroTaxi.Business.Entities;
 using UroTaxi.Business.Services.Dto;
 using UroTaxi.Entities;
 
@@ -19,10 +21,34 @@ namespace UroTaxi.Business.Services.DataServices
         }
         #endregion
         #region public functions
-        public Task<List<BookingDetailsDto>> GetBookingDetail(int carModelId)
+        public async Task<List<BookingDetailDto>> GetBookingDetail(int carModelId)
         {
-            var bookings = _applicationDbContext.CarTypes.FromSqlRaw("GetBookingDetails {0}", carModelId);
-            return null;
+            return await(from carType in _applicationDbContext.CarTypes
+                         from carModel in _applicationDbContext.CarModels
+                         from driver in _applicationDbContext.Drivers
+                         from fuelTypes in _applicationDbContext.fueltypes
+                         where carModel.carModelId == carModelId
+                         where fuelTypes.fuelTypeId == carModel.fuelType
+                         where driver.carModel == carModel.carModelId
+                         where carType.carTypeId ==carModel.carType
+
+                         select new BookingDetailDto
+                         {
+                             carModelId = carModel.carModelId,
+                             carName = carModel.carModel,
+                             carTypeId = carType.carTypeId,
+                             carType = carType.carType,
+                             ac = carModel.isAC ? "AC" : "Non-AC",
+                             seats = carModel.seats,
+                             carImage = carModel.carImage,
+                             fare = carModel.minFare,
+                             fuelType = fuelTypes.fuelType,
+                             driverId = driver.driverId,
+                             driverName = driver.driverName,
+                             driverEmail = driver.driverEMail,
+                             driverPhone= driver.driverPhone
+                         }
+                                ).ToListAsync();
         }
         #endregion
     }

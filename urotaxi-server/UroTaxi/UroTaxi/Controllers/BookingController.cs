@@ -7,8 +7,6 @@ using UroTaxi.Entities;
 
 namespace UroTaxi.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class BookingController : ControllerBase
     {
         #region Private Functions
@@ -40,7 +38,7 @@ namespace UroTaxi.Controllers
         [Route("Booking/Detail/{carModelId}")]
         [ProducesResponseType(typeof(Booking), 200)]
         [ProducesResponseType(404)]
-        public Task<List<BookingDetailsDto>> GetBookingDetail(int carModelId)
+        public Task<List<BookingDetailDto>> GetBookingDetail(int carModelId)
         {
             return _bookingService.GetBookingDetail(carModelId);
         }

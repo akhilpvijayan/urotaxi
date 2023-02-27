@@ -1,11 +1,12 @@
 ﻿namespace UroTaxi.Business.Dto
 {
-    public interface IBookingDetailsDto
+    public interface IBookingDetailDto
     {
         int carModelId { get; set; }
         string carName { get; set; }
         int carTypeId { get; set; }
         string carType { get; set; }
+        string carImage { get; set; }
         string ac { get; set; }
         int seats { get; set; }
         long fare { get; set; }

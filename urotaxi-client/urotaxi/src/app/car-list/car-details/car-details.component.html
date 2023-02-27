@@ -1,21 +1,21 @@
 
 	<div class="container card-main">
-		<div class="row">
+		<div class="row" *ngFor="let details of this.bookingService.bookingDetails">
 			<div class="col-lg-8 mb-2">
 				<div class="card">
                     <div class="row">
                         <div class="column">
-                            <img class="card-img-top img" src="https://imgd.aeplcdn.com/1056x594/n/yshbs0b_1641669.jpg?q=75" alt="">
+                            <img class="card-img-top img" src="{{details.carImage}}" alt="">
                         </div>
                         <div class="column car-deatils">
                             <div class="car-deatils">
-                                <span ><b class="car-name">Renault Kwid</b></span> <span class="fades">  or similar</span>
+                                <span ><b class="car-name">{{details.carName}}</b></span> <span class="fades">  or similar</span>
                             </div>
                             <br>
                             <ul class="ul">
-                                <li class="li">Sedan</li>
-                                <li class="li">AC</li>
-                                <li class="li">4 Seats</li>
+                                <li class="li">{{details.carType}}</li>
+                                <li class="li">{{details.ac}}</li>
+                                <li class="li">{{details.seats}} Seats</li>
                               </ul>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 5%;"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                             <path d="M32 64C32 28.7 60.7 0 96 0H256c35.3 0 64 28.7 64 64V256h8c48.6 0 88 39.4 88 88v32c0 13.3 10.7 24 24 24s24-10.7 24-24V222c-27.6-7.1-48-32.2-48-62V96L384 64c-8.8-8.8-8.8-23.2 0-32s23.2-8.8 32 0l77.3 77.3c12 12 18.7 28.3 18.7 45.3V168v24 32V376c0 39.8-32.2 72-72 72s-72-32.2-72-72V344c0-22.1-17.9-40-40-40h-8V448c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32V64zM96 80v96c0 8.8 7.2 16 16 16H240c8.8 0 16-7.2 16-16V80c0-8.8-7.2-16-16-16H112c-8.8 0-16 7.2-16 16z"/></svg>
@@ -52,12 +52,12 @@
                                         <span style='color:rgb(118, 118, 118)'>
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" style="width: 5%; color:rgb(118, 118, 118)"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                                             <path d="M0 64C0 46.3 14.3 32 32 32H96h16H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H231.8c9.6 14.4 16.7 30.6 20.7 48H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H252.4c-13.2 58.3-61.9 103.2-122.2 110.9L274.6 422c14.4 10.3 17.7 30.3 7.4 44.6s-30.3 17.7-44.6 7.4L13.4 314C2.1 306-2.7 291.5 1.5 278.2S18.1 256 32 256h80c32.8 0 61-19.7 73.3-48H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H185.3C173 115.7 144.8 96 112 96H96 32C14.3 96 0 81.7 0 64z"/></svg>
-                                            {{1600+1}}</span>
+                                            {{details.fare + 230}}</span>
                                     </span>&nbsp;
                                     <b style="font-size:xx-large;">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" style="width: 10%; color:rgb(118, 118, 118)"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                                         <path d="M0 64C0 46.3 14.3 32 32 32H96h16H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H231.8c9.6 14.4 16.7 30.6 20.7 48H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H252.4c-13.2 58.3-61.9 103.2-122.2 110.9L274.6 422c14.4 10.3 17.7 30.3 7.4 44.6s-30.3 17.7-44.6 7.4L13.4 314C2.1 306-2.7 291.5 1.5 278.2S18.1 256 32 256h80c32.8 0 61-19.7 73.3-48H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H185.3C173 115.7 144.8 96 112 96H96 32C14.3 96 0 81.7 0 64z"/></svg>
-                                        1450</b>
+                                        {{details.fare}}</b>
                                     </p>
                             </div>
                         </div>
@@ -82,12 +82,12 @@
                       <div class="col">
                         <label class="form-label" for="pick-up" aria-placeholder="Enter exact pickup address"><b>PickUp Address <span style="color: red;">*</span></b></label>
                         <input type="text" class="form-control" placeholder="Enter exact pickup address" name="pickup" minlength="04" maxlength="400" required
-                        style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">
+                        style="box-shadow: 10px 5px 5px rgb(152, 173, 212);" #PickupAddress="ngModel" [(ngModel)]="dashBoardForm.pickupAddress">
                       </div>
                       <div class="col">
                         <label class="form-label" for="pick-up" aria-placeholder="Enter exact drop address"><b>Drop Address <span style="color: red;">*</span></b></label>
                         <input type="text" class="form-control" placeholder="Enter exact drop address" name="drop" minlength="04" maxlength="400" required
-                        style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">
+                        style="box-shadow: 10px 5px 5px rgb(152, 173, 212);" #DropAddress="ngModel" [(ngModel)]="dashBoardForm.dropAddress">
                       </div>
                     </div>
                     <br>
@@ -95,24 +95,36 @@
                         <div class="col">
                           <label class="form-label" for="pick-up" aria-placeholder="Enter full Name"><b>Full Name <span style="color: red;">*</span></b></label>
                           <input type="text" class="form-control" placeholder="Full Name" name="PassengerName" pattern="[a-zA-Z\s]+" minlength="04" maxlength="40" required
-                           style="box-shadow: 10px 5px 5px rgb(152, 173, 212);" />
+                           style="box-shadow: 10px 5px 5px rgb(152, 173, 212);" #FullName="ngModel" [(ngModel)]="dashBoardForm.fullName" />
                         </div>
                         <div class="col">
                           <label class="form-label" for="pick-up" aria-placeholder="Enter email address"><b>Email <span style="color: red;">*</span></b><span class="fades"> (Your booking confirmation will be sent here)</span></label>
                           <input type="text" class="form-control" placeholder="xyz@gmail.com" name="EmailId" minlength="1" maxlength="35"
                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required
-                          style="box-shadow: 10px 5px 5px rgb(152, 173, 212);" />
+                          style="box-shadow: 10px 5px 5px rgb(152, 173, 212);" #Eamil="ngModel" [(ngModel)]="dashBoardForm.email" />
                         </div>
                         <div class="col">
                             <label class="form-label" for="pick-up" aria-placeholder="Enter phone Number"><b>Phone <span style="color: red;">*</span></b></label>
                             <input type="number" class="form-control" placeholder="Enter 10 digit phone number"name="ContactNo"
                             class="form-control" pattern="[0-9]+" minlength="10" maxlength="10"
-                            required style="box-shadow: 10px 5px 5px rgb(152, 173, 212);" />
-                          </div>
+                            required style="box-shadow: 10px 5px 5px rgb(152, 173, 212);" #Phone="ngModel" [(ngModel)]="dashBoardForm.phone" />
+                        </div>
                       </div>
                       <br>
-                      <button type="submit" class="btn btn-primary btn-lg" [disabled]="!(form.valid && form.dirty)"
-                      style="width: 100%; box-shadow: 10px 5px 5px rgb(152, 173, 212);">Submit</button>
+                      <div class="row">
+                        <div class="col">
+                            <button type="cancel" class="btn btn-danger btn-lg"
+                            style="width: 100%; box-shadow: 10px 5px 5px rgb(152, 173, 212);" [routerLink]="['/cars/{{this.carModelId}}']" >Cancel</button>
+                        </div>
+                        <div class="col">
+                            <button type="submit" class="btn btn-light btn-lg" (click)="resetForm(form)" [disabled]="!(form.dirty)"
+                            style="width: 100%; box-shadow: 10px 5px 5px rgb(152, 173, 212);">Clear All</button>
+                        </div>
+                        <div class="col"> 
+                            <button type="submit" class="btn btn-success btn-lg" [disabled]="!(form.valid && form.dirty)"
+                            style="width: 100%; box-shadow: 10px 5px 5px rgb(152, 173, 212);">Submit</button>
+                        </div>
+                      </div>
                   </form>
             </div>
         </div>

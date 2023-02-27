@@ -4,6 +4,6 @@ namespace UroTaxi.Business.Services
 {
     public interface IBookingService
     {
-        Task<List<BookingDetailsDto>> GetBookingDetail(int carModelId);
+        Task<List<BookingDetailDto>> GetBookingDetail(int carModelId);
     }
 }

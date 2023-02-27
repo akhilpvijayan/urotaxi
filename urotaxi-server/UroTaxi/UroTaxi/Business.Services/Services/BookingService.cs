@@ -21,7 +21,7 @@ namespace UroTaxi.Business.Services.Services
         }
         #endregion
         #region public functions
-        public Task<List<BookingDetailsDto>> GetBookingDetail(int carModelId)
+        public Task<List<BookingDetailDto>> GetBookingDetail(int carModelId)
         {
             return _bookingDataService.GetBookingDetail(carModelId);
         }
