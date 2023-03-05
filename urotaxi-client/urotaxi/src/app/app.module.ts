@@ -14,13 +14,19 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CarDetailsComponent } from './car-list/car-details/car-details.component';
+import { LoginComponent } from './login/login.component';
+import { SignUpComponent } from './login/sign-up/sign-up.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     CarListComponent,
-    CarDetailsComponent
+    CarDetailsComponent,
+    LoginComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,9 @@ import { CarDetailsComponent } from './car-list/car-details/car-details.componen
     MatTableModule,
     MatPaginatorModule,
     NgxPaginationModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgbModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

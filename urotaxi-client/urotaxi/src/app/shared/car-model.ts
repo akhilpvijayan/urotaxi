@@ -4,4 +4,8 @@ export class CarModel {
     carTypeId = '';
     carImage = '';
     isActive = '';
+    minFare = '';
+    seats = '';
+    fuelType = '';
+    isAc = '';
 }

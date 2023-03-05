@@ -1,6 +1,6 @@
 
-	<div class="container card-main">
-		<div class="row" *ngFor="let details of this.bookingService.bookingDetails">
+	<div class="container card-main" *ngFor="let details of this.bookingService.bookingDetails">
+		<div class="row">
 			<div class="col-lg-8 mb-2">
 				<div class="card">
                     <div class="row">
@@ -81,12 +81,12 @@
                     <div class="row">
                       <div class="col">
                         <label class="form-label" for="pick-up" aria-placeholder="Enter exact pickup address"><b>PickUp Address <span style="color: red;">*</span></b></label>
-                        <input type="text" class="form-control" placeholder="Enter exact pickup address" name="pickup" minlength="04" maxlength="400" required
+                        <input type="text" class="form-control" placeholder="Enter exact pickup address" name="pickupAddress" minlength="04" maxlength="400" required
                         style="box-shadow: 10px 5px 5px rgb(152, 173, 212);" #PickupAddress="ngModel" [(ngModel)]="dashBoardForm.pickupAddress">
                       </div>
                       <div class="col">
                         <label class="form-label" for="pick-up" aria-placeholder="Enter exact drop address"><b>Drop Address <span style="color: red;">*</span></b></label>
-                        <input type="text" class="form-control" placeholder="Enter exact drop address" name="drop" minlength="04" maxlength="400" required
+                        <input type="text" class="form-control" placeholder="Enter exact drop address" name="dropAddress" minlength="04" maxlength="400" required
                         style="box-shadow: 10px 5px 5px rgb(152, 173, 212);" #DropAddress="ngModel" [(ngModel)]="dashBoardForm.dropAddress">
                       </div>
                     </div>
@@ -94,18 +94,18 @@
                     <div class="row">
                         <div class="col">
                           <label class="form-label" for="pick-up" aria-placeholder="Enter full Name"><b>Full Name <span style="color: red;">*</span></b></label>
-                          <input type="text" class="form-control" placeholder="Full Name" name="PassengerName" pattern="[a-zA-Z\s]+" minlength="04" maxlength="40" required
+                          <input type="text" class="form-control" placeholder="Full Name" name="name" pattern="[a-zA-Z\s]+" minlength="04" maxlength="40" required
                            style="box-shadow: 10px 5px 5px rgb(152, 173, 212);" #FullName="ngModel" [(ngModel)]="dashBoardForm.fullName" />
                         </div>
                         <div class="col">
                           <label class="form-label" for="pick-up" aria-placeholder="Enter email address"><b>Email <span style="color: red;">*</span></b><span class="fades"> (Your booking confirmation will be sent here)</span></label>
-                          <input type="text" class="form-control" placeholder="xyz@gmail.com" name="EmailId" minlength="1" maxlength="35"
+                          <input type="text" class="form-control" placeholder="xyz@gmail.com" name="email" minlength="1" maxlength="35"
                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required
                           style="box-shadow: 10px 5px 5px rgb(152, 173, 212);" #Eamil="ngModel" [(ngModel)]="dashBoardForm.email" />
                         </div>
                         <div class="col">
                             <label class="form-label" for="pick-up" aria-placeholder="Enter phone Number"><b>Phone <span style="color: red;">*</span></b></label>
-                            <input type="number" class="form-control" placeholder="Enter 10 digit phone number"name="ContactNo"
+                            <input type="number" class="form-control" placeholder="Enter 10 digit phone number"name="phone"
                             class="form-control" pattern="[0-9]+" minlength="10" maxlength="10"
                             required style="box-shadow: 10px 5px 5px rgb(152, 173, 212);" #Phone="ngModel" [(ngModel)]="dashBoardForm.phone" />
                         </div>
@@ -114,7 +114,7 @@
                       <div class="row">
                         <div class="col">
                             <button type="cancel" class="btn btn-danger btn-lg"
-                            style="width: 100%; box-shadow: 10px 5px 5px rgb(152, 173, 212);" [routerLink]="['/cars/{{this.carModelId}}']" >Cancel</button>
+                            style="width: 100%; box-shadow: 10px 5px 5px rgb(152, 173, 212);" (click)="onCancel()">Cancel</button>
                         </div>
                         <div class="col">
                             <button type="submit" class="btn btn-light btn-lg" (click)="resetForm(form)" [disabled]="!(form.dirty)"

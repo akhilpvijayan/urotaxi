@@ -50,6 +50,17 @@ namespace UroTaxi.Business.Services.DataServices
                          }
                                 ).ToListAsync();
         }
+
+        public async Task<int> AddBooking(Booking booking)
+        {
+            if (_applicationDbContext != null)
+            {
+                await _applicationDbContext.Bookings.AddAsync(booking);
+                await _applicationDbContext.SaveChangesAsync();
+                return booking.bookingId;
+            }
+            return 0;
+        }
         #endregion
     }
 }

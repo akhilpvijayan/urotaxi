@@ -4,6 +4,67 @@
   box-sizing: border-box;
 }
 
+h1 {
+  font-size: 2.3em;
+  font-weight: bold;
+}
+.modal-content {
+  width: 80%;
+  margin-inline: auto;
+}
+.modal-body {
+  padding: 0;
+}
+.myform {
+  padding: 2em;
+  max-width: 100%;
+  color: #fff;
+  box-shadow: 0 4px 6px 0px rgba(0, 0, 0, 0.5);
+}
+.btn-close {
+  position: absolute;
+  right: 0;
+  padding: 1em;
+}
+.form-control:focus {
+  background-color: inherit;
+  color: #fff;
+  box-shadow: inset 0 -1px 0 #7e7e7e;
+}
+.form-control {
+  background-color: inherit;
+  color: #fff;
+  padding-left: 0;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid #fff;
+}
+.myform .btn {
+  width: 100%;
+  font-weight: 800;
+  background-color: #fff;
+  border-radius: 0;
+  padding: 0.5em 0;
+}
+.myform .btn:hover {
+  background-color: inherit;
+  color: #fff;
+  border-color: #fff;
+}
+.myform p {
+  text-align: center;
+  padding-top: 2em;
+  color: grey;
+}
+.myform p a {
+  color: #e1e1e1;
+  text-decoration: none;
+}
+.myform p a:hover {
+  color: #fff;
+}
+
+
 .hero_area {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";

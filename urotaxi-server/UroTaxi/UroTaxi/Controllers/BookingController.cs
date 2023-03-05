@@ -42,6 +42,16 @@ namespace UroTaxi.Controllers
         {
             return _bookingService.GetBookingDetail(carModelId);
         }
+
+
+        [HttpPost]
+        [Route("Booking")]
+        [ProducesResponseType(typeof(Booking), 200)]
+        [ProducesResponseType(404)]
+        public Task<int> AddBooking([FromBody]  Booking booking)
+        {
+            return _bookingService.AddBooking(booking);
+        }
         #endregion
     }
 }

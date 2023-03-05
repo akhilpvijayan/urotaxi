@@ -33,7 +33,7 @@
                   <a class="nav-link" href="contact.html">Contact Us</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Login</a>
+                  <a class="nav-link" (click)="login()">Login</a>
                 </li>
               </ul>
             </div>
@@ -99,8 +99,8 @@
                 &nbsp;
                 <div class="btm_input">
                   <input type="text" onfocus="(this.type='date')" name="Date" placeholder="Pickup Date" id="Date" #Date="ngModel"
-                  [(ngModel)]="dashBoardForm.date">
-                  <button type="submit">Book Now</button>
+                  [(ngModel)]="dashBoardForm.date" required>
+                  <button type="submit" [disabled]="!(form.valid && form.dirty)">Book Now</button>
                 </div>
               </form>
             </div>
@@ -109,3 +109,5 @@
       </div>
     </section>
   </div>
+
+  

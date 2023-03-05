@@ -25,6 +25,11 @@ namespace UroTaxi.Business.Services.Services
         {
             return _bookingDataService.GetBookingDetail(carModelId);
         }
+
+        public Task<int> AddBooking(Booking booking)
+        {
+            return _bookingDataService.AddBooking(booking);
+        }
         #endregion
     }
 }
