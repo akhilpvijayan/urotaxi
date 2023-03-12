@@ -8,29 +8,33 @@
               <div class="col-md-9 col-lg-8 mx-auto">
   
                 <!-- Sign In Form -->
-                <form>
+                <form name ="registerForm" class="registerForm" #form="ngForm" (ngSubmit)="onSubmit(form)">
                   <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <input type="text" class="form-control" placeholder="name@example.com" name="Username" id="username" required #Username="ngModel"
+                    [(ngModel)]="registerForm.userName">
                     <label for="floatingInput">Username</label>
                   </div>
                   <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <input type="password" class="form-control" placeholder="Password" name="Password" id="password" required #Password="ngModel"
+                    [(ngModel)]="registerForm.password">
                     <label for="floatingPassword">Password</label>
                   </div>
                   <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <input type="password" class="form-control" id="floatingPassword2" placeholder="Password" required>
                     <label for="floatingPassword">Confirm Password</label>
                   </div>
                   <div class="row">
                     <div class="col">
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingPassword" placeholder="Password">
+                            <input type="email" class="form-control" placeholder="Email" name="userEmail" id="email" required #Email="ngModel"
+                            [(ngModel)]="registerForm.email">
                             <label for="floatingPassword">Email</label>
                           </div>
                     </div>
                     <div class="col">
                         <div class="form-floating mb-3">
-                            <input type="number" class="form-control" id="floatingPassword" placeholder="Password">
+                            <input type="number" class="form-control" placeholder="Phone" name="Phone" id="phone" required #Phone="ngModel"
+                            [(ngModel)]="registerForm.phone">
                             <label for="floatingPassword">Phone</label>
                           </div>
                     </div>
@@ -38,7 +42,8 @@
                   <div class="row">
                     <div class="col">
                         <div class="form-check mb-3" aria-disabled="true">
-                            <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
+                            <input class="form-check-input" type="checkbox" value="" name="isAdmin" id="isAdmin" required #IsAdmin="ngModel"
+                            [(ngModel)]="registerForm.isAdmin">
                             <label class="form-check-label" for="rememberPasswordCheck">
                               Administrator
                             </label>
@@ -46,8 +51,9 @@
                     </div>
                     <div class="col">
                         <div class="form-check mb-3" aria-disabled="true">
-                            <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
-                            <label class="form-check-label" for="rememberPasswordCheck">
+                            <input class="form-check-input" type="checkbox" value="" name="isDriver" id="isDriver" required #IsDriver="ngModel"
+                            [(ngModel)]="registerForm.isDriver">
+                            <label class="form-check-label" for="isDriver">
                               Driver
                             </label>
                           </div>

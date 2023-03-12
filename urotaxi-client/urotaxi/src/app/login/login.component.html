@@ -11,12 +11,13 @@
                 <!-- Sign In Form -->
                 <form name ="loginForm" class="loginForm" #form="ngForm" (ngSubmit)="onSubmit(form)">
                   <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="username" placeholder="name@example.com" required #Username="ngModel"
+                    <input type="email" class="form-control" name="Username" id="username" placeholder="name@example.com" required #Username="ngModel"
                     [(ngModel)]="loginForm.userName">
                     <label for="floatingInput">Email/Username</label>
                   </div>
                   <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="password" placeholder="Password" required>
+                    <input type="password" class="form-control" id="password" name="Password" placeholder="Password" required #Password="ngModel"
+                    [(ngModel)]="loginForm.password">
                     <label for="floatingPassword">Password</label>
                   </div>
   

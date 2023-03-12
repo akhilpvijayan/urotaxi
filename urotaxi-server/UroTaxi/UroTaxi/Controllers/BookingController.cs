@@ -26,7 +26,7 @@ namespace UroTaxi.Controllers
 
         #region Public Functions
         [HttpGet]
-        [Route("Bookings")]
+        [Route("bookings")]
         [ProducesResponseType(typeof(Booking), 200)]
         [ProducesResponseType(404)]
         public Task<List<Booking>> GetAllBookings()
@@ -35,7 +35,7 @@ namespace UroTaxi.Controllers
         }
 
         [HttpGet]
-        [Route("Booking/Detail/{carModelId}")]
+        [Route("booking/detail/{carModelId}")]
         [ProducesResponseType(typeof(Booking), 200)]
         [ProducesResponseType(404)]
         public Task<List<BookingDetailDto>> GetBookingDetail(int carModelId)
@@ -45,7 +45,7 @@ namespace UroTaxi.Controllers
 
 
         [HttpPost]
-        [Route("Booking")]
+        [Route("booking")]
         [ProducesResponseType(typeof(Booking), 200)]
         [ProducesResponseType(404)]
         public Task<int> AddBooking([FromBody]  Booking booking)

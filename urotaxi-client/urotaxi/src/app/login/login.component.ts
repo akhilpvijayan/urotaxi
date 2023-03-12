@@ -19,7 +19,11 @@ loginForm : Login = new Login;
   }
 
   onSubmit(form: NgForm){
-    this.authService.login(form);
+    this.authService.login(form.form.value).subscribe(
+      (result) => {
+        console.log(result);
+      }
+    )
   }
 
   register(){
