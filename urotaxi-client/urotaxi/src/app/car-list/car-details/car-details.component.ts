@@ -6,6 +6,7 @@ import { DashboardForm } from 'src/app/shared/dashboard-form';
 import { Location } from '@angular/common';
 import { LoginComponent } from 'src/app/login/login.component';
 import { MatDialog } from '@angular/material/dialog';
+import { AuthserviceService } from 'src/app/services/authservice.service';
 
 @Component({
   selector: 'app-car-details',
@@ -14,7 +15,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class CarDetailsComponent implements OnInit {
 id:string | null = '';
-  constructor(private _Activatedroute: ActivatedRoute, public bookingService: BookingService, private router : Router, private _location: Location, public dialog: MatDialog) {
+  constructor(private _Activatedroute: ActivatedRoute,private authService: AuthserviceService, public bookingService: BookingService, private router : Router, private _location: Location, public dialog: MatDialog) {
     this._Activatedroute.paramMap.subscribe(paramMap => { 
     this.id = paramMap.get('id'); 
 }); }
@@ -27,19 +28,24 @@ formData : any
   }
 
   onSubmit(form: NgForm){
-    this.dialog.open(LoginComponent,{width:'790px', height:'460px', hasBackdrop:true, panelClass: 'custom-dialog-container' });
-    form.value.pickupdate = this.formData[2];
-    form.value.source = this.formData[0];
-    form.value.destination = this.formData[1];
-    this.bookingService.addBooking(form.value).subscribe(
-      (result) => {
-        console.log(result);
-        this.resetForm(form);
-        localStorage.removeItem('dashboardForm');
-      }
-    )
-    this.router.navigate(['/home']);
+    if(localStorage.getItem('uroTaxi auth')){
+      form.value.pickupdate = this.formData[2];
+      form.value.source = this.formData[0];
+      form.value.destination = this.formData[1];
+      this.bookingService.addBooking(form.value).subscribe(
+        (result) => {
+          console.log(result);
+          this.resetForm(form);
+          localStorage.removeItem('dashboardForm');
+        }
+      )
+      this.router.navigate(['/home']);
+    }
+    else{
+      this.dialog.open(LoginComponent,{width:'790px', height:'460px', hasBackdrop:true, panelClass: 'custom-dialog-container' });
+    }
   }
+  
 
   onCancel(){
     this._location.back();

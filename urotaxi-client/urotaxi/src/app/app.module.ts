@@ -18,6 +18,8 @@ import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './login/sign-up/sign-up.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { CarListAdminComponent } from './admin/car-list-admin/car-list-admin.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     CarListComponent,
     CarDetailsComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    AdminDashboardComponent,
+    CarListAdminComponent
   ],
   imports: [
     BrowserModule,

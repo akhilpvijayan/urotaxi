@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { CarDetailsComponent } from './car-list/car-details/car-details.component';
 import { CarListComponent } from './car-list/car-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -10,7 +11,8 @@ const routes: Routes = [
   { path: 'home', component: DashboardComponent},
   { path: '', component: DashboardComponent},
   { path: 'cars/:id', component: CarListComponent},
-  { path: 'cars/:id/book/:id', component: CarDetailsComponent}
+  { path: 'cars/:id/book/:id', component: CarDetailsComponent},
+  { path: 'admin', component: AdminDashboardComponent},
 ];
 
 @NgModule({

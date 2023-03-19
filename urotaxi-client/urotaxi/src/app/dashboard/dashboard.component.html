@@ -17,23 +17,20 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
               <ul class="navbar-nav  ">
-                <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="about.html"> About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="service.html"> Services </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="news.html"> News</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact Us</a>
-                </li>
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="!this.authService.isLoggedIn">
                   <a class="nav-link" (click)="login()">Login</a>
+                </li>
+                <li class="nav-item" *ngIf="this.authService.isLoggedIn">
+                  <div ngbDropdown class="d-inline-block">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownBasic1" ngbDropdownToggle style="min-width: 150px;">
+                      {{this.uName}}
+                    </button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-menu">
+                      <button ngbDropdownItem>My Profile</button>
+                      <button ngbDropdownItem (click)="navigateAdmin()">Admin Dashboard</button>
+                      <button ngbDropdownItem (click)="logOut()">LogOut</button>
+                    </div>
+                  </div>
                 </li>
               </ul>
             </div>

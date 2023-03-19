@@ -8,14 +8,31 @@ import { User } from '../shared/user';
   providedIn: 'root'
 })
 export class AuthserviceService {
+  isLoggedIn = false;
+  loggedResult:any;
+  constructor(private httpClient: HttpClient) {
+    const token = localStorage.getItem('uroTaxi auth');
+    if(token){
+      this.isLoggedIn = true;
+    }
+   }
 
-  constructor(private httpClient: HttpClient) { }
-
-  login(data: any):Observable<any>{
-    return this.httpClient.get(environment.apiUrl + "/login/"+data.Username+"/"+data.Password);
+   login(Username:string,Password:string):Observable<any>{
+    return this.httpClient.get(environment.apiUrl + "/login/"+Username+"/"+Password);
   }
 
   register(data: User): Observable<any>{
     return this.httpClient.post(environment.apiUrl + "/register/", data);
   }
+
+  authData(data:any){
+    this.loggedResult = data;
+    localStorage.setItem('uName',this.loggedResult.uName);
+  }
+
+    public logOut(){
+      localStorage.clear();
+      sessionStorage.clear();
+    }
+  
 }

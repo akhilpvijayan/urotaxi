@@ -7,6 +7,8 @@ import { CityService } from '../services/city.service';
 import { DashboardForm } from '../shared/dashboard-form';
 import {MatDialog} from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
+import { AuthserviceService } from '../services/authservice.service';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +18,8 @@ import { LoginComponent } from '../login/login.component';
 export class DashboardComponent implements OnInit {
   closeResult = '';
   dashBoardForm : DashboardForm = new DashboardForm;
-  constructor(public carTypeService : CarTypeService, public httpClient : HttpClient, public cityService : CityService, private router: Router, public dialog: MatDialog) { }
+  constructor(public carTypeService : CarTypeService,public authService: AuthserviceService, public httpClient : HttpClient, public cityService : CityService, private router: Router, public dialog: MatDialog) { }
+  uName = localStorage.getItem('uName');
   ngOnInit(): void {
       this.carTypeService.getCarTypes();
       this.cityService.getCities();
@@ -30,7 +33,16 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['/cars',form.form.value.CarType]);
   }
 
-  login(){
+  login(){ 
     this.dialog.open(LoginComponent,{width:'790px', height:'460px', hasBackdrop:true, panelClass: 'custom-dialog-container' });
+  }
+
+  logOut(){
+    this.authService.logOut();
+    window.location.reload();
+  }
+
+  navigateAdmin(){
+    this.router.navigateByUrl('/admin');
   }
 }

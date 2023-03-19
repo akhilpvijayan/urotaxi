@@ -10,12 +10,19 @@ import { CarModel } from '../shared/car-model';
 export class CarModelService {
   formData:CarModel=new CarModel();
   carModels !: CarModel[];
+  carModel !: CarModel[];
   constructor(private httpClient: HttpClient) { }
   //get all car models
   getCarModels(){
     this.httpClient.get(environment.apiUrl + '/carmodel')
     .toPromise().then(
       response => this.carModels = response as CarModel[])
+  }
+  //get all car models by VM
+  getCarModelsbyVM(){
+    this.httpClient.get(environment.apiUrl + '/carmodels')
+    .toPromise().then(
+      response => this.carModel = response as CarModel[])
   }
   //get particular car model
   getCarModel(carModelId: number) {
@@ -32,5 +39,9 @@ export class CarModelService {
       response => this.carModels = response as CarModel[]);
       
     }
+    
+  deleteCarModel(id:number){
+    return this.httpClient.delete(environment.apiUrl+'/carModel/' +id);
+  }
   
 }
