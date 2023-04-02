@@ -1,0 +1,77 @@
+<form style="padding: 30px 30px 30px 30px;" name="carModelForm" autocomplete="off" #form="ngForm"
+    (ngSubmit)="onSubmit(form)">
+    <div class="form-row row">
+        <div class="form-group col-md-6 col">
+            <label for="carModel"><b>Car Model<span
+                style="color: red;">*</span></b></label>
+            <input type="text" class="form-control" id="carModel" placeholder="Enter Car Model" name="carModel"
+                minlength="01" maxlength="400" required style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"
+                #carModel="ngModel" [(ngModel)]="carModelForm.carModel">
+        </div>
+        <div class="form-group col-md-6 col">
+            <label for="carType"><b>Car Type</b><span
+                style="color: red;">*</span></label>
+            <select name="CarType" id="CarType" class="form-control" required #CarType="ngModel" [(ngModel)]="carModelForm.carTypeId" required style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">
+                <option value="" selected disabled>Select an Option</option>
+                <option *ngFor="let carType of carTypeService.carTypes" value='{{carType.carTypeId}}'>
+                {{carType.carType}}
+                </option>
+            </select>
+        </div>
+    </div><br>
+    <div class="form-group">
+        <label for="inputAddress"><b>Car Image</b><span
+            style="color: red;">*</span><i>(Enter image URL)</i></label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="" name="carImage"
+        minlength="01" maxlength="400" required style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"
+        #carImage="ngModel" [(ngModel)]="carModelForm.carImage">
+    </div><br>
+    <div class="form-row row">
+        <div class="form-group col-md-6 col">
+            <label for="fuelType"><b>Fuel Type</b><span
+                style="color: red;">*</span></label>
+            <select name="CarType" id="CarType" class="form-control" required name="fuelType" #FuelType="ngModel" [(ngModel)]="carModelForm.fuelType" required style="box-shadow: 10px 5px 5px rgb(152, 173, 212);">
+                <option value="" selected disabled>Select an Option</option>
+                <option *ngFor="let fuelType of fuelTypeService.fuelType" value='{{fuelType.fuelTypeId}}'>
+                {{fuelType.fuelType}}
+                </option>
+            </select>
+        </div>
+        <div class="form-group col-md-6 col">
+            <label for="seats"><b>No: of Seats</b><span
+                style="color: red;">*</span></label>
+            <input type="number" class="form-control" id="seats" name="seats" placeholder="Enter Number of Seats" minlength="01" maxlength="10" required style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"
+            #seats="ngModel" [(ngModel)]="carModelForm.seats">
+        </div>
+    </div><br>
+    <div class="form-row row">
+        <div class="form-group col-md-6 col">
+            <label for="minFare"><b>Min. Fare</b><span
+                style="color: red;">*</span></label>
+            <input type="number" class="form-control" id="minFare" placeholder="Enter Minimum Fare" name="minFare"
+            minlength="01" maxlength="400" required style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"
+            #minFare="ngModel" [(ngModel)]="carModelForm.minFare"><br>
+        </div>
+        <div class="form-group col-md-6 col">
+            <label for="ac"><b>AC</b><span
+                style="color: red;">*</span></label>
+            <select name="ac" id="ac" class="form-control" name="isAc"
+            minlength="01" maxlength="400" required style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"
+            #isAc="ngModel" [(ngModel)]="carModelForm.isAc"><br>
+                <option value="" selected disabled>Select an Option</option>
+                <option value='true'>Yes</option>
+                <option value='false'>No</option>
+            </select>
+        </div>
+    </div><br>
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-danger" style="width: 100%; box-shadow: 10px 5px 5px rgb(152, 173, 212);"
+            (click)="closeLog()">Close</button>
+        </div>
+        <div class="col">
+            <button type="submit" class="btn btn-success" [disabled]="!(form.valid && form.dirty)"
+            style="width: 100%; box-shadow: 10px 5px 5px rgb(152, 173, 212);">Add Car Model</button>
+        </div>
+    </div>
+</form>
