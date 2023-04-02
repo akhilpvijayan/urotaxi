@@ -46,6 +46,17 @@ namespace UroTaxi.Business.Services.DataServices
             return null;
         }
 
+        public async Task<int> AddCarModel(CarModel carModel)
+        {
+            if (_applicationDbContext != null)
+            {
+                await _applicationDbContext.CarModels.AddAsync(carModel);
+                await _applicationDbContext.SaveChangesAsync();
+                return carModel.carModelId;
+            }
+            return 0;
+        }
+
         public async Task<int> DeleteCarModel(int id)
         {
             if (_applicationDbContext != null)

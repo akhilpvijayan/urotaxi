@@ -27,6 +27,11 @@ namespace UroTaxi.Business.Services.Services
             return _carModelDataService.GetAllCarModelVM();
         }
 
+        public Task<int> AddCarModel(CarModel carModel)
+        {
+            return _carModelDataService.AddCarModel(carModel);
+        }
+
         public Task<int> DeleteCarModel(int id)
         {
             return _carModelDataService.DeleteCarModel(id);

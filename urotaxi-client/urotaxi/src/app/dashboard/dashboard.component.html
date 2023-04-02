@@ -1,12 +1,13 @@
 
 <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
 
-  <div class="hero_area">
+  <div class="hero_area"  style="background-image: url(https://coolwallpapers.me/picsup/6024020-grand-theft-auto-iv-bridge-new-york-rain-sunset-taxi-evening.jpg); 
+  background-size: cover;">
     <header class="header_section">
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand">
-            <span>
+            <span style="color: white;">
               Urotaxi
             </span>
           </a>
@@ -18,7 +19,7 @@
             <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
               <ul class="navbar-nav  ">
                 <li class="nav-item" *ngIf="!this.authService.isLoggedIn">
-                  <a class="nav-link" (click)="login()">Login</a>
+                  <a class="nav-link" (click)="login()" style="color: white;">Login</a>
                 </li>
                 <li class="nav-item" *ngIf="this.authService.isLoggedIn">
                   <div ngbDropdown class="d-inline-block">
@@ -51,17 +52,13 @@
                 <div class="carousel-inner">
                   <div class="carousel-item active">
                     <div class="img-box">
-                        <img src="https://img.freepik.com/premium-vector/three-dimensional-image-taxi-car-isolated-white-background_53876-12108.jpg?w=2000" alt="">
+                        
                       </div>
                   </div>
                 </div>
               </div>
 
-              <div class="btn-box">
-                <a href="" class="btn-1">
-                  Read More
-                </a>
-              </div>
+              
             </div>
           </div>
           <div class="col-lg-4 col-md-5 ">

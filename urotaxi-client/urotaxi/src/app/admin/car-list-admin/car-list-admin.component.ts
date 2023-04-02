@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { AuthserviceService } from 'src/app/services/authservice.service';
 import { CarModelService } from 'src/app/services/car-model.service';
+import { AddCarModelComponent } from './add-car-model/add-car-model.component';
 
 @Component({
   selector: 'app-car-list-admin',
@@ -13,7 +16,7 @@ export class CarListAdminComponent implements OnInit {
 
   constructor(
     public carModelService: CarModelService,
-    private router: Router
+    private router: Router, private authService: AuthserviceService, public dialog: MatDialog
   ) { }
 
 
@@ -24,7 +27,7 @@ export class CarListAdminComponent implements OnInit {
     
   }
 
-  updateStaff(Id: number) {
+  updateCarModel(Id: number) {
     //this.router.navigate(['add-staff', Id, 0]);
   }
 
@@ -38,5 +41,14 @@ export class CarListAdminComponent implements OnInit {
         window.location.reload();
         }
         }
+
+    logOut(){
+      this.authService.logOut();
+      this.router.navigateByUrl('/home');
+    }
+
+    addCarModel(){[
+      this.dialog.open(AddCarModelComponent,{width:'790px', height:'460px', hasBackdrop:true, panelClass: 'custom-dialog-container' })
+    ]}
   }
 

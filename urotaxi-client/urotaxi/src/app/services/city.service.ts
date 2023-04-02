@@ -22,5 +22,13 @@ export class CityService {
     return this.httpClient.get(environment.apiUrl + '/city/' + cityId);
       
     }
-  
+
+//insert a car model
+  addCity(city: City): Observable<any> {
+    return this.httpClient.post(environment.apiUrl + "/city/", city);
+  }
+
+  deleteCity(id:number){
+    return this.httpClient.delete(environment.apiUrl+'/city/' +id);
+  }
 }

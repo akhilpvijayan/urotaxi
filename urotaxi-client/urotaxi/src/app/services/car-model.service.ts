@@ -44,4 +44,9 @@ export class CarModelService {
     return this.httpClient.delete(environment.apiUrl+'/carModel/' +id);
   }
   
+  //insert a car model
+  addCarModel(carModel: CarModel): Observable<any> {
+    return this.httpClient.post(environment.apiUrl + "/carModel/", carModel);
+
+  }
 }

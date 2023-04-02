@@ -54,17 +54,13 @@ namespace UroTaxi.Controllers
             return await _carModelService.GetAllCarModelVM();
         }
 
-        [HttpDelete("carmodel/{id}")]
+        [HttpPost]
+        [Route("carmodel")]
         [ProducesResponseType(typeof(CarModel), 200)]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> DeleteCarModel(int id)
+        public Task<int> AddCarModel([FromBody] CarModel carModel)
         {
-            var uId = await _carModelService.DeleteCarModel(id);
-            if (uId == 0)
-            {
-                return NotFound();
-            }
-            return Ok(uId);
+            return _carModelService.AddCarModel(carModel);
         }
 
         [HttpPut("carmodel/restore/{id}")]
@@ -79,6 +75,20 @@ namespace UroTaxi.Controllers
             }
             return Ok(uId);
         }
+
+        [HttpDelete("carmodel/{id}")]
+        [ProducesResponseType(typeof(CarModel), 200)]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> DeleteCarModel(int id)
+        {
+            var uId = await _carModelService.DeleteCarModel(id);
+            if (uId == 0)
+            {
+                return NotFound();
+            }
+            return Ok(uId);
+        }
+
         #endregion
     }
 }

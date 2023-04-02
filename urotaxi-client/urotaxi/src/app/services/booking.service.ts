@@ -24,10 +24,10 @@ export class BookingService {
       
     }
 
-    //insert a booking
-    addBooking(booking: Booking): Observable<any> {
-      return this.httpClient.post(environment.apiUrl + "/booking/", booking);
-  
-    }
+  //insert a booking
+  addBooking(booking: Booking): Observable<any> {
+    return this.httpClient.post(environment.apiUrl + "/booking/", booking);
+
+  }
   
 }

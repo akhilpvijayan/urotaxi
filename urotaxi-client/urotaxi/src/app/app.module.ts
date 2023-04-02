@@ -20,6 +20,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { CarListAdminComponent } from './admin/car-list-admin/car-list-admin.component';
+import { AddCarModelComponent } from './admin/car-list-admin/add-car-model/add-car-model.component';
+import { CityListComponent } from './admin/city-list/city-list.component';
+import { AddCityComponent } from './admin/city-list/add-city/add-city.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { CarListAdminComponent } from './admin/car-list-admin/car-list-admin.com
     LoginComponent,
     SignUpComponent,
     AdminDashboardComponent,
-    CarListAdminComponent
+    CarListAdminComponent,
+    AddCarModelComponent,
+    CityListComponent,
+    AddCityComponent
   ],
   imports: [
     BrowserModule,
