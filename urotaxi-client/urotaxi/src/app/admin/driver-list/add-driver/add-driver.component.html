@@ -1,0 +1,54 @@
+<form style="padding: 30px 30px 30px 30px;" name="carModelForm" autocomplete="off" #form="ngForm"
+    (ngSubmit)="onSubmit(form)">
+    <div class="form-row row">
+        <div class="form-group col-md-6 col">
+            <label for="carModel"><b>Driver Name<span style="color: red;">*</span></b></label>
+            <input type="text" class="form-control" id="carModel" placeholder="Enter User Name" name="userName"
+                minlength="01" maxlength="400" required style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"
+                #userName="ngModel" [(ngModel)]="userForm.userName">
+        </div>
+        <div class="form-group col-md-6 col">
+            <label for="carModel"><b>Driver Password<span style="color: red;">*</span></b></label>
+            <input type="password" class="form-control" id="password" placeholder="Enter User Password" name="password"
+                minlength="01" maxlength="400" required style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"
+                #password="ngModel" [(ngModel)]="userForm.password">
+        </div>
+    </div><br>
+    <div class="form-row row">
+    <div class="form-group col-md-6 col">
+        <label for="carModel"><b>Driver Email<span style="color: red;">*</span></b></label>
+        <input type="email" class="form-control" id="userEmail" placeholder="Enter User Name" name="userEmail"
+            minlength="01" maxlength="400" required style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"
+            #Email="ngModel" [(ngModel)]="userForm.email">
+    </div>
+    <div class="form-group col-md-6 col">
+        <label for="carModel"><b>Driver Phone<span style="color: red;">*</span></b></label>
+        <input type="text" class="form-control" id="carModel" placeholder="Enter User Password" name="userPhone"
+            minlength="10" maxlength="10" required style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"
+            #Phone="ngModel" [(ngModel)]="userForm.phone">
+    </div><br>
+    </div>
+    <br>
+    <div class="row">
+        <div class="form-group col-md-6 col">
+            <div class="form-check">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Admin
+                  </label>
+                <input class="form-check-input" type="checkbox" value="1" id="isAdmin" name="isAdmin"
+                #isAdmin="ngModel" [(ngModel)]="userForm.isAdmin">
+              </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-danger"
+                style="width: 100%; box-shadow: 10px 5px 5px rgb(152, 173, 212);" (click)="closeLog()">Close</button>
+        </div>
+        <div class="col">
+            <button type="submit" class="btn btn-success" [disabled]="!(form.valid && form.dirty)"
+                style="width: 100%; box-shadow: 10px 5px 5px rgb(152, 173, 212);">Add Driver</button>
+        </div>
+    </div>
+</form>

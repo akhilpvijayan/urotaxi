@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { CarListAdminComponent } from './admin/car-list-admin/car-list-admin.component';
 import { CityListComponent } from './admin/city-list/city-list.component';
+import { DriverListComponent } from './admin/driver-list/driver-list.component';
+import { UserListComponent } from './admin/user-list/user-list.component';
 import { CarDetailsComponent } from './car-list/car-details/car-details.component';
 import { CarListComponent } from './car-list/car-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -17,6 +19,8 @@ const routes: Routes = [
   { path: 'admin', component: AdminDashboardComponent},
   { path: 'car-list-admin', component: CarListAdminComponent},
   { path: 'city-list-admin', component: CityListComponent},
+  { path: 'user-list-admin', component: UserListComponent},
+  { path: 'driver-list-admin', component: DriverListComponent},
 ];
 
 @NgModule({

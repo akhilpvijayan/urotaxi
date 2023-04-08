@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using UroTaxi.Business.Services;
+using UroTaxi.Business.Services.Services;
 using UroTaxi.Entities;
 
 namespace UroTaxi.Controllers
@@ -40,6 +41,40 @@ namespace UroTaxi.Controllers
         public Task<List<CarType>> GetCarType(int carTypeId)
         {
             return _applicationDbContext.CarTypes.Where(s=>s.carTypeId == carTypeId).ToListAsync();
+        }
+        [HttpPost]
+        [Route("carType")]
+        [ProducesResponseType(typeof(CarType), 200)]
+        [ProducesResponseType(404)]
+        public Task<int> AddCarType([FromBody] CarType carType)
+        {
+            return _carTypeService.AddCarType(carType);
+        }
+
+        [HttpPut("carType/restore/{id}")]
+        [ProducesResponseType(typeof(CarType), 200)]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> RestoreCarType(int id)
+        {
+            var uId = await _carTypeService.RestoreCarType(id);
+            if (uId == 0)
+            {
+                return NotFound();
+            }
+            return Ok(uId);
+        }
+
+        [HttpDelete("carType/{id}")]
+        [ProducesResponseType(typeof(CarType), 200)]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> DeleteCarType(int id)
+        {
+            var uId = await _carTypeService.DeleteCarType(id);
+            if (uId == 0)
+            {
+                return NotFound();
+            }
+            return Ok(uId);
         }
         #endregion
     }

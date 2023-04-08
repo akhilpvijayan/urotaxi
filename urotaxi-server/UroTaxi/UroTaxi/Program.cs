@@ -44,6 +44,8 @@ builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<ILoginDataService, LoginDataService>();
 builder.Services.AddScoped<ICarModelService, CarModelService>();
 builder.Services.AddScoped<ICarModelDataService, CarModelDataService>();
+builder.Services.AddScoped<IUserservice, UserService>();
+builder.Services.AddScoped<IUserDataService, UserDataService>();
 
 builder.Services.AddCors();
 

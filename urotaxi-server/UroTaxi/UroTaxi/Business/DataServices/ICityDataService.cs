@@ -1,6 +1,11 @@
-﻿namespace UroTaxi.Business.DataServices
+﻿using UroTaxi.Entities;
+
+namespace UroTaxi.Business.DataServices
 {
-    public class ICityDataService
+    public interface ICityDataService
     {
+        Task<int> AddCity(City city);
+        Task<int> DeleteCity(int id);
+        Task<int> RestoreCity(int id);
     }
 }

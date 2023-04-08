@@ -23,6 +23,10 @@ import { CarListAdminComponent } from './admin/car-list-admin/car-list-admin.com
 import { AddCarModelComponent } from './admin/car-list-admin/add-car-model/add-car-model.component';
 import { CityListComponent } from './admin/city-list/city-list.component';
 import { AddCityComponent } from './admin/city-list/add-city/add-city.component';
+import { UserListComponent } from './admin/user-list/user-list.component';
+import { AddUserComponent } from './admin/user-list/add-user/add-user.component';
+import { DriverListComponent } from './admin/driver-list/driver-list.component';
+import { AddDriverComponent } from './admin/driver-list/add-driver/add-driver.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,11 @@ import { AddCityComponent } from './admin/city-list/add-city/add-city.component'
     CarListAdminComponent,
     AddCarModelComponent,
     CityListComponent,
-    AddCityComponent
+    AddCityComponent,
+    UserListComponent,
+    AddUserComponent,
+    DriverListComponent,
+    AddDriverComponent
   ],
   imports: [
     BrowserModule,

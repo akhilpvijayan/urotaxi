@@ -1,39 +1,39 @@
-﻿using UroTaxi.Business.DataServices;
+﻿using Microsoft.AspNetCore.Identity;
+using UroTaxi.Business.DataServices;
 using UroTaxi.Entities;
-using UroTaxi.XObjects.ViewModels;
 
 namespace UroTaxi.Business.Services.DataServices
 {
-    public class CarTypeDataService : ICarTypeDataService
+    public class UserDataService : IUserDataService
     {
         #region Private Functions
         private readonly ApplicationDBContext _applicationDbContext;
         #endregion
 
         #region Constructors
-        public CarTypeDataService(
+        public UserDataService(
             ApplicationDBContext applicationDbContext)
         {
             _applicationDbContext = applicationDbContext;
         }
         #endregion
         #region public functions
-        public async Task<int> AddCarType(CarType carType)
+        public async Task<int> AddUser(User user)
         {
             if (_applicationDbContext != null)
             {
-                await _applicationDbContext.CarTypes.AddAsync(carType);
+                await _applicationDbContext.Users.AddAsync(user);
                 await _applicationDbContext.SaveChangesAsync();
-                return carType.carTypeId;
+                return user.userId;
             }
             return 0;
         }
 
-        public async Task<int> DeleteCarType(int id)
+        public async Task<int> DeleteUser(int id)
         {
             if (_applicationDbContext != null)
             {
-                var itemToRemove = _applicationDbContext.CarTypes.SingleOrDefault(x => x.carTypeId == id);
+                var itemToRemove = _applicationDbContext.Users.SingleOrDefault(x => x.userId == id);
 
                 if (itemToRemove != null)
                 {
@@ -46,11 +46,11 @@ namespace UroTaxi.Business.Services.DataServices
             return 0;
         }
 
-        public async Task<int> RestoreCarType(int id)
+        public async Task<int> RestoreUser(int id)
         {
             if (_applicationDbContext != null)
             {
-                var itemToRemove = _applicationDbContext.CarTypes.SingleOrDefault(x => x.carTypeId == id);
+                var itemToRemove = _applicationDbContext.Users.SingleOrDefault(x => x.userId == id);
 
                 if (itemToRemove != null)
                 {
