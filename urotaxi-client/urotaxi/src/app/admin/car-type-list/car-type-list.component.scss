@@ -1,0 +1,43 @@
+header {
+    height: 70px;
+    width: 100vw;
+    padding: 0 30px;
+    background-color: var(--background-color1);
+    position: fixed;
+    z-index: 100;
+    box-shadow: 1px 1px 15px rgba(161, 182, 253, 0.825);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 600;
+    color: rgb(47, 141, 70);
+}
+
+.logosec {
+    gap: 60px;
+}
+
+.main-container {
+    display:block;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+    top: 90px;
+}
+        
+.message {
+    gap: 40px;
+    position: relative;
+    cursor: pointer;
+    }
+    
+.message,
+.logosec {
+display: flex;
+align-items: center;
+justify-content: center;
+}

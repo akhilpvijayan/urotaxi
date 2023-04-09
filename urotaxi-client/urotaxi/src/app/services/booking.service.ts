@@ -16,18 +16,21 @@ export class BookingService {
   booking !: Booking[];
   constructor(private httpClient: HttpClient) { }
 
-  //get bookig details
+  //get booking details
   getBookingDetails(carModelId: number){
     this.httpClient.get(environment.apiUrl + '/booking/detail/' + carModelId)
     .toPromise().then(
       response => this.bookingDetails = response as BookingDetail[]);
-      
     }
 
   //insert a booking
   addBooking(booking: Booking): Observable<any> {
     return this.httpClient.post(environment.apiUrl + "/booking/", booking);
-
   }
+
+  deleteBooking(id:number){
+    return this.httpClient.delete(environment.apiUrl+'/booking/' +id);
+  }
+  
   
 }

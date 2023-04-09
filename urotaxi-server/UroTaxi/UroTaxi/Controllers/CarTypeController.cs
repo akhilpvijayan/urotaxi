@@ -32,7 +32,7 @@ namespace UroTaxi.Controllers
         [ProducesResponseType(404)]
         public Task<List<CarType>> GetAllCarTypes()
         {
-            return _applicationDbContext.CarTypes.ToListAsync();
+            return _applicationDbContext.CarTypes.Where(s => s.isActive == true).ToListAsync();
         }
         [HttpGet]
         [Route("cartype/{carTypeId}")]

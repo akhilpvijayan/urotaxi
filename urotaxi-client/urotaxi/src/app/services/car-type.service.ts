@@ -21,6 +21,14 @@ export class CarTypeService {
   //get particular car type
   getCarType(cartypeId: number) : Observable<any>{
     return this.httpClient.get(environment.apiUrl + '/cartype/' + cartypeId);
-      
     }
+
+  //insert a car type
+  addCarType(carType: CarType): Observable<any> {
+    return this.httpClient.post(environment.apiUrl + "/cartype/", carType);
+  }
+
+  deleteCarType(id:number){
+    return this.httpClient.delete(environment.apiUrl+'/cartype/' +id);
+  }
 }

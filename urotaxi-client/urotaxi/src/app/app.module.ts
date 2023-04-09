@@ -27,6 +27,8 @@ import { UserListComponent } from './admin/user-list/user-list.component';
 import { AddUserComponent } from './admin/user-list/add-user/add-user.component';
 import { DriverListComponent } from './admin/driver-list/driver-list.component';
 import { AddDriverComponent } from './admin/driver-list/add-driver/add-driver.component';
+import { CarTypeListComponent } from './admin/car-type-list/car-type-list.component';
+import { AddCarTypeComponent } from './admin/car-type-list/add-car-type/add-car-type.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { AddDriverComponent } from './admin/driver-list/add-driver/add-driver.co
     UserListComponent,
     AddUserComponent,
     DriverListComponent,
-    AddDriverComponent
+    AddDriverComponent,
+    CarTypeListComponent,
+    AddCarTypeComponent
   ],
   imports: [
     BrowserModule,

@@ -28,6 +28,7 @@ export class AuthserviceService {
   authData(data:any){
     this.loggedResult = data;
     localStorage.setItem('uName',this.loggedResult.uName);
+    localStorage.setItem('uId',this.loggedResult.uId);
   }
 
     public logOut(){

@@ -29,9 +29,18 @@ namespace UroTaxi.Controllers
         [Route("bookings")]
         [ProducesResponseType(typeof(Booking), 200)]
         [ProducesResponseType(404)]
-        public Task<List<Booking>> GetAllBookings()
+        public Task<List<BookingListDto>> GetAllBookings()
         {
-            return _applicationDbContext.Bookings.ToListAsync();
+            return _bookingService.GetAllBookings();
+        }
+
+        [HttpGet]
+        [Route("bookings/{userId}")]
+        [ProducesResponseType(typeof(Booking), 200)]
+        [ProducesResponseType(404)]
+        public Task<List<Booking>> GetAllBookingsByUser(int userId)
+        {
+            return _applicationDbContext.Bookings.Where(s => s.bookedUser == userId).ToListAsync();
         }
 
         [HttpGet]
@@ -51,6 +60,30 @@ namespace UroTaxi.Controllers
         public Task<int> AddBooking([FromBody]  Booking booking)
         {
             return _bookingService.AddBooking(booking);
+        }
+
+        [HttpDelete]
+        [Route("booking/{bookingId}")]
+        [ProducesResponseType(typeof(Booking), 200)]
+        [ProducesResponseType(404)]
+        public async Task<ActionResult<Booking>> DeleteBooking(int bookingId)
+        {
+            try
+            {
+                var employeeToDelete = await _bookingService.GetBookingDetail(bookingId);
+
+                if (employeeToDelete == null)
+                {
+                    return NotFound($"Booking not found");
+                }
+
+                return await _bookingService.DeleteBooking(bookingId);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Error deleting data");
+            }
         }
         #endregion
     }

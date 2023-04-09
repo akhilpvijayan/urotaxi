@@ -1,0 +1,21 @@
+<form style="padding: 30px 30px 30px 30px;" name="carTypeForm" autocomplete="off" #form="ngForm"
+    (ngSubmit)="onSubmit(form)">
+    <div class="form-row row">
+        <label for="city"><b>Car Type<span
+            style="color: red;">*</span></b></label>
+        <input type="text" class="form-control" id="carModel" placeholder="Enter Car Type" name="carType"
+            minlength="01" maxlength="400" required style="box-shadow: 10px 5px 5px rgb(152, 173, 212);"
+            #carType="ngModel" [(ngModel)]="carTypeForm.carType">
+    </div><br>
+    <br>
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-danger" style="width: 100%; box-shadow: 10px 5px 5px rgb(152, 173, 212);"
+            (click)="closeLog()">Close</button>
+        </div>
+        <div class="col">
+            <button type="submit" class="btn btn-success" [disabled]="!(form.valid && form.dirty)"
+            style="width: 100%; box-shadow: 10px 5px 5px rgb(152, 173, 212);">Add Car Type</button>
+        </div>
+    </div>
+</form>

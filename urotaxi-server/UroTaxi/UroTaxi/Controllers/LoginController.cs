@@ -56,6 +56,7 @@ namespace UroTaxi.Controllers
                 var tokenString = _loginService.GenerateJSONWebToken(user);
                 response = Ok(new
                 {
+                    uId = user.userId,
                     uName = user.userName,
                     isAdmin = user.isAdmin,
                     isDriver = user.isDriver,

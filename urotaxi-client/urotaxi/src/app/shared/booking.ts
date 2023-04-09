@@ -1,6 +1,7 @@
 export class Booking {
     bookingId = '';
     name = '';
+    bookedUser = '';
     source = '';
     destination = '';
     pickUpDate = '';
@@ -8,4 +9,5 @@ export class Booking {
     dropAddress = '';
     phone = '';
     email = '';
+    carModel = '';
 }

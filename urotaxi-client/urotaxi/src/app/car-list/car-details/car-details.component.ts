@@ -32,6 +32,8 @@ formData : any
       form.value.pickupdate = this.formData[2];
       form.value.source = this.formData[0];
       form.value.destination = this.formData[1];
+      form.value.bookedUser = localStorage.getItem('uId');
+      form.value.carModel = this.id;
       this.bookingService.addBooking(form.value).subscribe(
         (result) => {
           console.log(result);
